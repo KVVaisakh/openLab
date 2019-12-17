@@ -57,8 +57,9 @@ for i in range(dim[0]):
 		k+=1
 
 cv2.imshow("img",imgt)
-cv2.waitKey(0)
+cv2.waitKey(5000)
 cv2.destroyAllWindows()
+
 #3a
 import numpy
 

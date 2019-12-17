@@ -24,7 +24,7 @@ cv2.imshow("img",avimg)
 cv2.waitKey(5000)
 cv2.destroyAllWindows()
 
-#3c
+#3a
 
 img =cv2.imread("vaishak.jpg")
 dim = img.shape
@@ -76,7 +76,7 @@ cv2.imshow("img",imgt)
 cv2.waitKey(5000)
 cv2.destroyAllWindows()
 
-#3b
+#3c
 
 img =cv2.imread("vaishak.jpg")
 dim = img.shape

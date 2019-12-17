@@ -26,7 +26,7 @@ cv2.destroyAllWindows()
 
 #3a
 
-img =cv2.imread("vaishak.jpg")
+img =cv2.imread("pexels.jpeg")
 dim = img.shape
 
 a=-math.pi/4
@@ -62,7 +62,7 @@ cv2.destroyAllWindows()
 
 #3a
 
-img =cv2.imread("vaishak.jpg")
+img =cv2.imread("pexels.jpeg")
 dim = img.shape
 
 a=-math.pi/4
@@ -78,7 +78,7 @@ cv2.destroyAllWindows()
 
 #3c
 
-img =cv2.imread("vaishak.jpg")
+img =cv2.imread("pexels.jpeg")
 dim = img.shape
 imgt= numpy.zeros(((dim[0]+dim[1]),(dim[0]+dim[1]),3), numpy.uint8)
 
@@ -89,5 +89,3 @@ for i in range(dim[0]):
 cv2.imshow("img",imgt)
 cv2.waitKey(5000)
 cv2.destroyAllWindows()
-
-

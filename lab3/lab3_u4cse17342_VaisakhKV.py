@@ -22,24 +22,6 @@ cv2.imshow("img",avimg)
 cv2.waitKey(5000)
 cv2.destroyAllWindows()
 
-#3a
-import numpy
-
-img =cv2.imread("vaishak.jpg")
-dim = img.shape
-print(dim)
-
-imgt= numpy.zeros((max(dim[0],dim[1]),max(dim[0],dim[1]),3), numpy.uint8)
-print(imgt.shape)
-
-for i in range(dim[0]):
-	for j in range(dim[1]):
-		imgt[(dim[1]-j+i)//2][(i+j)//2]=img[i][j]
-
-cv2.imshow("img",imgt)
-cv2.waitKey(5000)
-cv2.destroyAllWindows()
-
 #3b
 import numpy
 import math 
@@ -76,4 +58,21 @@ for i in range(dim[0]):
 
 cv2.imshow("img",imgt)
 cv2.waitKey(0)
+cv2.destroyAllWindows()
+#3a
+import numpy
+
+img =cv2.imread("vaishak.jpg")
+dim = img.shape
+print(dim)
+
+imgt= numpy.zeros((max(dim[0],dim[1]),max(dim[0],dim[1]),3), numpy.uint8)
+print(imgt.shape)
+
+for i in range(dim[0]):
+	for j in range(dim[1]):
+		imgt[(dim[1]-j+i)//2][(i+j)//2]=img[i][j]
+
+cv2.imshow("img",imgt)
+cv2.waitKey(5000)
 cv2.destroyAllWindows()

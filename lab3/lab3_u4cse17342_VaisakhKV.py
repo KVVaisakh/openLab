@@ -1,4 +1,6 @@
 import cv2
+import numpy
+import math 
 
 #1
 img=cv2.imread("ff_disney5_f.jpg")
@@ -22,15 +24,13 @@ cv2.imshow("img",avimg)
 cv2.waitKey(5000)
 cv2.destroyAllWindows()
 
-#3b
-import numpy
-import math 
+#3c
 
 img =cv2.imread("vaishak.jpg")
 dim = img.shape
 
-a=math.pi/4
-imgt= numpy.zeros((int((dim[0]+dim[1])*math.cos(a)),int((dim[0]+dim[1])*math.sin(a)),3), numpy.uint8)
+a=-math.pi/4
+imgt= numpy.zeros((int(abs(dim[0]*math.cos(a))+abs(dim[1]*math.sin(a))),int(abs(dim[0]*math.sin(a))+abs(dim[1]*math.cos(a))),3), numpy.uint8)
 
 mat=numpy.array([[math.cos(a),-math.sin(a)],[math.sin(a),math.cos(a)]])
 pos=numpy.zeros((dim[0]*dim[1],2), numpy.uint16)
@@ -46,7 +46,7 @@ newPos=newPos.astype(int)
 
 minx=newPos.min(axis=0)
 for i in range(k):
-	# newPos[i][0]+=(-minx[0])
+	newPos[i][0]+=(-minx[0])
 	newPos[i][1]+=(-minx[1])
 	k-=1
 
@@ -61,14 +61,12 @@ cv2.waitKey(5000)
 cv2.destroyAllWindows()
 
 #3a
-import numpy
 
 img =cv2.imread("vaishak.jpg")
 dim = img.shape
-print(dim)
 
-imgt= numpy.zeros((max(dim[0],dim[1]),max(dim[0],dim[1]),3), numpy.uint8)
-print(imgt.shape)
+a=-math.pi/4
+imgt= numpy.zeros((int(abs(dim[0]*math.cos(a))+abs(dim[1]*math.sin(a))),int(abs(dim[0]*math.sin(a))+abs(dim[1]*math.cos(a))),3), numpy.uint8)
 
 for i in range(dim[0]):
 	for j in range(dim[1]):
@@ -77,3 +75,19 @@ for i in range(dim[0]):
 cv2.imshow("img",imgt)
 cv2.waitKey(5000)
 cv2.destroyAllWindows()
+
+#3b
+
+img =cv2.imread("vaishak.jpg")
+dim = img.shape
+imgt= numpy.zeros(((dim[0]+dim[1]),(dim[0]+dim[1]),3), numpy.uint8)
+
+for i in range(dim[0]):
+	for j in range(dim[1]):
+		imgt[(dim[1]-j+i)][(i+j)]=img[i][j]
+
+cv2.imshow("img",imgt)
+cv2.waitKey(5000)
+cv2.destroyAllWindows()
+
+

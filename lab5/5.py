@@ -3,9 +3,9 @@ import math
 import numpy
 
 img = cv2.imread("histogram.png")
-#1
 imgtemp=img
 img2=img
+#1
 dim=img.shape
 img=cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 imgtemp=cv2.cvtColor(imgtemp, cv2.COLOR_BGR2GRAY)
@@ -30,8 +30,22 @@ imgAut=cv2.equalizeHist(imgtemp)
 cv2.imwrite("equilisedAutomated.jpg",imgAut)
 
 # 2
+x=20
 for i in img2:
 	for j in i:
-		j[0]=0
-		j[1]=0
+		if j[2]<(255-x):
+			j[2]=j[2]+x
+		else:
+			j[2]=255
+		if j[0]>x:
+			j[0]=j[0]-x
+		else:
+			j[0]=0
+hsv = cv2.cvtColor(img2, cv2.COLOR_BGR2HSV)
+for i in img2:
+	for j in i:
+		if j[2]<225:
+			j[2]=j[2]+30
+		else:
+			j[2]=255
 cv2.imwrite("warmed.jpg",img2)

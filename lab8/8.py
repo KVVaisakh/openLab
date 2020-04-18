@@ -1,5 +1,5 @@
 import cv2
-import numpy as np
+import numpy
 
 vid_cod = cv2.VideoWriter_fourcc(*'XVID')
 output1 = cv2.VideoWriter("output.avi", vid_cod, 20.0, (640,480))
@@ -8,7 +8,7 @@ output2 = cv2.VideoWriter("contours.avi", vid_cod, 20.0, (640,480))
 vid = cv2.VideoCapture('input.avi')
 ret,background = vid.read()
 
-kernel = np.ones((50,50),np.uint8)
+kernel = numpy.ones((50,50),numpy.uint8)
 while(True):
 	ret, frame = vid.read()
 	if ret == False:
@@ -31,7 +31,7 @@ while(True):
 	if(contours):
 		contour = max(contours, key=cv2.contourArea)
 	else:
-		contour = 0
+		contour = [numpy.array([[1,1],[10,50],[50,50]], dtype=numpy.int32) , numpy.array([[99,99],[99,60],[60,99]], dtype=numpy.int32)]
 	bg=background.copy()
 	cont = cv2.drawContours(bg, contour, -1, (0,0,0), 3)
 	cv2.imshow("countours",cont)

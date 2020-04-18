@@ -27,13 +27,8 @@ while(True):
 	# cv2.imshow("outline",gradient)
 
 	contours, hierarchy = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
-	# contours.remove(contours[0])
-	if(contours):
-		contour = max(contours, key=cv2.contourArea)
-	else:
-		contour = [numpy.array([[1,1],[10,50],[50,50]], dtype=numpy.int32) , numpy.array([[99,99],[99,60],[60,99]], dtype=numpy.int32)]
 	bg=background.copy()
-	cont = cv2.drawContours(bg, contour, -1, (0,0,0), 3)
+	cont = cv2.drawContours(bg, contours, -1, (0,0,0), 3)
 	cv2.imshow("countours",cont)
 	image=cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
 	cv2.imshow("binary", image)
